@@ -1,0 +1,70 @@
+{
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.refreshOnInsertMode": true,
+    "semanticTokens.filetypes": ["*"],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "cpp",
+        "hpp",
+        "c",
+        "h",
+        "py",
+        "json",
+        "jsonc",
+        "rust"
+    ],
+    // "clangd.path": "/usr/local/bin/clangd",
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "args": [
+                "-j=16",
+                "--clang-tidy",
+                "--clang-tidy-checks=*",
+                "--all-scopes-completion",
+                "--completion-style=detailed",
+                "--header-insertion-decorators",
+                "--header-insertion=never",
+                "--pch-storage=memory"
+            ],
+            "rootPatterns": [
+                ".clangd",
+                "compile_flags.txt",
+                "compile_commands.json"
+            ],
+            "filetypes": ["c", "h", "cc", "cpp", "c++", "hpp", "objc", "objcpp"]
+        },
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": [
+                ".stack.yaml",
+                ".hie-bios",
+                "BUILD.bazel",
+                "cabal.config",
+                "package.yaml"
+            ],
+            "filetypes": ["hs", "lhs", "haskell"],
+            "initializationOptions": {
+                "languageServerHaskell": {
+                    "hlintOn": true,
+                    "maxNumberOfProblems": 10,
+                    "completionSnippetsOn": true
+                }
+            }
+        }
+    },
+    "Lua.telemetry.enable": false,
+    "sumneko-lua.checkUpdate": false,
+    "sumneko-lua.inlayHints.refreshOnInsertMode": true,
+    "rust-analyzer.server.path": "~/.rustup/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
+    "rust-analyzer.updates.prompt": false,
+    "rust-analyzer.updates.channel": "nightly",
+    "rust-analyzer.updates.checkOnStartup": false,
+    "rust-analyzer.lruCapacity": 128,
+    "rust-analyzer.inlayHints.refreshOnInsertMode": true,
+    "rust-analyzer.cargo.allFeatures": true,
+    "rust-analyzer.rustfmt.enableRangeFormatting": true,
+    "rust-analyzer.lens.methodReferences": true,
+    "rust-analyzer.assist.importEnforceGranularity": true,
+    "rust-analyzer.debug.runtime": "vimspector"
+}

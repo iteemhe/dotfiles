@@ -1,0 +1,63 @@
+CompileFlags:
+    Add:
+        [
+            -std=c++20,
+            -g3,
+            -Wall,
+            -Wextra,
+            -Wpedantic,
+            -Werror=pedantic,
+            -Wconversion,
+            -Wsign-conversion,
+            -Wfloat-equal,
+            -Wshadow,
+            -Wunreachable-code,
+        ]
+
+Index:
+    Background: Skip     # Disable slow background indexing of these files.
+
+InlayHints:
+    Enabled: Yes
+    ParameterNames: Yes
+    DeducedTypes: Yes
+
+Hover:
+    ShowAKA: Yes
+
+Diagnostics:
+    UnusedIncludes: Strict
+
+---
+
+If:
+    PathMatch: .*\.c
+CompileFlags:
+    Add:
+        [
+            -std=c17,
+            -g3,
+            -Wall,
+            -Wextra,
+            -Wpedantic,
+            -Werror=pedantic,
+            -Wconversion,
+            -Wsign-conversion,
+            -Wfloat-equal,
+            -Wshadow,
+            -Wunreachable-code,
+        ]
+
+Index:
+    Background: Skip
+
+InlayHints:
+    Enabled: Yes
+    ParameterNames: Yes
+    DeducedTypes: Yes
+
+Hover:
+    ShowAKA: Yes
+
+Diagnostics:
+    UnusedIncludes: Strict

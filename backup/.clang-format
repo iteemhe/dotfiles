@@ -1,0 +1,101 @@
+# # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+BasedOnStyle: LLVM
+UseTab: Never
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: Attach
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
+ColumnLimit: 80
+AccessModifierOffset: -4
+NamespaceIndentation: All
+FixNamespaceComments: false
+# # Waiting for clang-format 14
+# # PackConstructorInitializers: CurrentLine
+# # QualifierAlignment: Leave
+# # AllowAllConstructorInitializersOnNextLine: true
+
+# # Base Style
+# BasedOnStyle: LLVM
+
+# # Custom Style
+# AccessModifierOffset: -4
+# AlignAfterOpenBracket: Align
+# AlignArrayOfStructures: Left
+# AlignConsecutiveAssignments: Consecutive
+# AlignConsecutiveBitFields: Consecutive
+# AlignConsecutiveDeclarations: Consecutive
+# AlignConsecutiveMacros: Consecutive
+# AlignEscapedNewlines: Right
+# AlignOperands: Align
+# AlignTrailingComments: true
+# AllowAllArgumentsOnNextLine: true
+# AllowAllParametersOfDeclarationOnNextLine: true
+# AllowShortBlocksOnASingleLine: Empty
+# AllowShortCaseLabelsOnASingleLine: false
+# AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+# AllowShortIfStatementsOnASingleLine: Never
+# AllowShortIfStatementsOnASingleLine: false
+# AllowShortLambdasOnASingleLine: All
+# AllowShortLoopsOnASingleLine: false
+# AlwaysBreakAfterReturnType: All
+# AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+# BinPackArguments: true
+# BinPackParameters: true
+# BitFieldColonSpacing: Both
+# BreakBeforeBinaryOperators: None
+# BreakBeforeBraces: Attach
+# BreakBeforeConceptDeclarations: true
+# BreakBeforeTernaryOperators: true
+# BreakConstructorInitializers: BeforeColon
+# BreakInheritanceList: BeforeColon
+# BreakStringLiterals: true
+# ColumnLimit: 72
+# CompactNamespaces: false
+# Cpp11BracedListStyle: true
+# DeriveLineEnding: true
+# DerivePointerAlignment: false
+# EmptyLineAfterAccessModifier: Never
+# EmptyLineBeforeAccessModifier: LogicalBlock
+# FixNamespaceComments: false
+IncludeBlocks: Regroup
+# IndentAccessModifiers: false
+# IndentCaseBlocks: true
+# IndentCaseLabels: true
+# IndentExternBlock: Indent
+# IndentRequires: false
+# IndentWidth: 4
+# KeepEmptyLinesAtTheStartOfBlocks: true
+# LambdaBodyIndentation: Signature
+# MaxEmptyLinesToKeep: 1
+# # NamespaceIndentation: All
+# PointerAlignment: Right
+# ReferenceAlignment: Pointer
+# ReflowComments: true
+# SortIncludes: CaseSensitive
+# SortUsingDeclarations: true
+# SpaceAfterCStyleCast: false
+# SpaceAfterLogicalNot: false
+# SpaceAfterTemplateKeyword: true
+# SpaceAroundPointerQualifiers: Default
+# SpaceBeforeAssignmentOperators: true
+# SpaceBeforeCaseColon: false
+# SpaceBeforeCpp11BracedList: false
+# SpaceBeforeCtorInitializerColon: true
+# SpaceBeforeInheritanceColon: true
+# SpaceBeforeParens: ControlStatements
+# SpaceBeforeRangeBasedForLoopColon: true
+# SpaceBeforeSquareBrackets: false
+# SpaceInEmptyBlock: false
+# SpaceInEmptyParentheses: false
+# SpacesInCStyleCastParentheses: false
+# SpacesInConditionalStatement: false
+# SpacesInParentheses: false
+# SpacesInSquareBrackets: false
+# Standard: Latest
+# TabWidth: 4
+# UseCRLF: false
+# UseTab: Never

@@ -1,0 +1,19 @@
+~/.hushlogin
+~/.gitconfig
+~/.gitignore
+~/.vimrc
+~/.zshrc
+~/.ideavimrc
+~/.p10k.zsh
+~/.aria2
+~/.tmux.conf
+
+~/.clangd
+~/.clang-format
+
+~/.vim/coc-settings.json
+~/.config/wezterm
+~/.config/bat
+~/.config/lsd
+
+~/Library/Application\ Support/Code/User/settings.json
