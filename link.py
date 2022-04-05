@@ -19,6 +19,8 @@ def main() -> None:
         # print("{} ==> {}".format(source, target))
         system("cp -R {} ./temp/".format(source))
     system("code --list-extensions > ./temp/vscode_extensions.txt")
+    system("brew bundle dump")
+    system("mv Brewfile ./temp")
     print("Replacing old files... Enter YES to confirm")
     x = input()
     if x.strip().lower() != "yes":
