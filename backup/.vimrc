@@ -1,4 +1,7 @@
 set nocompatible
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -16,12 +19,12 @@ Plug 'itchyny/lightline.vim'
 " Plug 'ycm-core/YouCompleteMe'
 " Plug 'vim-syntastic/syntastic'
 " Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 " Plug 'puremourning/vimspector'
 Plug 'jdhao/better-escape.vim'
-" Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'machakann/vim-highlightedyank'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Plug 'L-TChen/auto-dark-mode.vim'
@@ -51,6 +54,7 @@ set background=dark
 " Prevents weired bahavior in Vim
 set nocindent
 autocmd FileType c,cpp,h,python setlocal indentkeys-=: | setlocal cinkeys-=:
+autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 autocmd FileType markdown let delimitMate_quotes = '"'
 
 " Material Theme
@@ -168,9 +172,6 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>e :q!<CR>
 
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -320,6 +321,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update() | redrawstatus
+" autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Mappings for CoCList
 " Show all diagnostics.

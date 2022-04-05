@@ -18,11 +18,9 @@ export RUST_BACKTRACE=full
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
 export VISUAL=vim
 export EDITOR=vim
-KEYTIMEOUT=1
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-word)
-#bindkey '^h' backward-word
 
 # web_search search engine
 ZSH_WEB_SEARCH_ENGINES=(
@@ -181,7 +179,9 @@ alias rmdir='echo "DO NOT USE 'rmdir'" | cowsay | lolcat'
 alias time='/usr/bin/time'
 alias v=vim
 
+# bindkey "^h" backward-word
 bindkey "^l" forward-word
+KEYTIMEOUT=1
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

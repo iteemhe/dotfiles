@@ -15,5 +15,6 @@
 ~/.config/wezterm
 ~/.config/bat
 ~/.config/lsd
+~/.config/helix
 
 ~/Library/Application\ Support/Code/User/settings.json

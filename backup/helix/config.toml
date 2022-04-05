@@ -1,0 +1,17 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+
+[keys.normal]
+# Leaderkey map
+";" = { w = ":w", s = ":w", x = ":x", q = ":q", e = ":q!", f = ":format" }
+
+[keys.insert]
+j = { j = "normal_mode" }
+k = { k = "normal_mode" }
+C-j = "move_line_down"
+C-k = "move_line_up"
+C-h = "move_char_left"
+C-l = "move_char_right"
