@@ -66,5 +66,7 @@
     "rust-analyzer.rustfmt.enableRangeFormatting": true,
     "rust-analyzer.lens.methodReferences": true,
     "rust-analyzer.assist.importEnforceGranularity": true,
-    "rust-analyzer.debug.runtime": "vimspector"
+    "rust-analyzer.debug.runtime": "vimspector",
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length=100"]
 }

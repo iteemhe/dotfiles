@@ -183,6 +183,7 @@ alias v=vim
 bindkey "^l" forward-word
 KEYTIMEOUT=1
 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

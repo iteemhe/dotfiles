@@ -2,16 +2,17 @@ set nocompatible
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
-" Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
 
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+" Install vim-plug if not found
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" endif
+"
+" " Run PlugInstall if there are missing plugins
+" autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+"   \| PlugInstall --sync | source $MYVIMRC
+" \| endif
 
 call plug#begin()
 " Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -31,7 +32,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'joshdick/onedark.vim'
 Plug 'Raimondi/delimitMate'
 " Plug 'jbgutierrez/vim-better-comments'
-Plug 'koryschneider/vim-trim'
+" Plug 'koryschneider/vim-trim'
 call plug#end()
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -57,6 +58,16 @@ autocmd FileType c,cpp,h,python setlocal indentkeys-=: | setlocal cinkeys-=:
 autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 autocmd FileType markdown let delimitMate_quotes = '"'
 
+function! Trim()
+    let l:save = winsaveview()
+    keeppatterns silent! %s/\s\+$//e
+    " keeppatterns silent! %s#\%^\($\n\s*\)\+##
+    keeppatterns silent! %s#\($\n\s*\)\+\%$##
+    " Always puts a blank line
+    keeppatterns silent! $put _
+    call winrestview(l:save)
+endfunction
+
 " Material Theme
 " let g:material_terminal_italics = 1
 " let g:material_theme_style = 'darker'
@@ -71,11 +82,15 @@ function! LightlineFilename()
 endfunction
 
 function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
+  return winwidth(0) > 70 && &fileformat !=# "unix" ? &fileformat : ''
 endfunction
 
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+    return winwidth(0) > 70 && &fileencoding !=# "utf-8" ? &fileencoding : ""
 endfunction
 
 let g:lightline = {
@@ -83,6 +98,8 @@ let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'cocstatus' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
   \ },
   \ 'component': {
   \   'lineinfo': '%3l:%-2v%<',
@@ -92,11 +109,12 @@ let g:lightline = {
   \   'gitbranch': 'FugitiveHead',
   \   'filename': 'LightlineFilename',
   \   'fileformat': 'LightlineFileformat',
-  \   'filetype': 'LightlineFiletype'
+  \   'filetype': 'LightlineFiletype',
+  \   'fileencoding': 'LightlineFileencoding'
   \ },
   \ 'mode_map': {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
+        \ 'n' : 'NOR',
+        \ 'i' : 'INS',
         \ 'R' : 'R',
         \ 'v' : 'V',
         \ 'V' : 'VL',
@@ -186,7 +204,7 @@ set hidden
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=10
+set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
