@@ -21,6 +21,7 @@ Plug 'itchyny/lightline.vim'
 " Plug 'vim-syntastic/syntastic'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 " Plug 'puremourning/vimspector'
@@ -64,7 +65,7 @@ function! Trim()
     " keeppatterns silent! %s#\%^\($\n\s*\)\+##
     keeppatterns silent! %s#\($\n\s*\)\+\%$##
     " Always puts a blank line
-    keeppatterns silent! $put _
+    " keeppatterns silent! $put _
     call winrestview(l:save)
 endfunction
 
@@ -99,7 +100,7 @@ let g:lightline = {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'cocstatus' ] ],
   \   'right': [ [ 'lineinfo' ],
-  \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
+  \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
   \ },
   \ 'component': {
   \   'lineinfo': '%3l:%-2v%<',
@@ -134,6 +135,9 @@ let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
 syntax on
 colorscheme onedark
+
+" Transparant background
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Vimspector
 let g:vimspector_install_gadgets = [ 'CodeLLDB' ]
@@ -183,13 +187,20 @@ cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 " Quick save
-let mapleader = ";"
+" let mapleader = ";"
 nnoremap <Leader>qq :q<CR>
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>e :q!<CR>
 
+" Copy and paste
+xnoremap <Leader>y "+y
+" Yank all
+nnoremap <Leader>ya :%y+<CR>
+" Yank a line
+nnoremap <Leader>yy "+yy
+nnoremap <Leader>p "+p
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -358,4 +369,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-

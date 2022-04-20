@@ -8,16 +8,26 @@ fi
 
 # Custom settings
 . "$HOME/.cargo/env"
-export PATH="/usr/local/sbin:$HOME/.ghcup/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 # source "$HOME/.zsh_path"
 # export PAGER="less -RF --mouse --wheel-lines=2"
 # export DELTA_PAGER="less -RF --mouse --wheel-lines=2"
 export ASAN_OPTIONS="detect_leaks=1"
-export RUST_BACKTRACE=full
+# export RUST_BACKTRACE=full
 # export JAVA_HOME=$(/usr/libexec/java_home)
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
 export VISUAL=vim
 export EDITOR=vim
+
+# used for non-standard Homebrew installation
+# eval "$(brew shellenv)"
+export HOMEBREW_PREFIX="/usr/local";
+export HOMEBREW_CELLAR="/usr/local/Cellar";
+export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
+# export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}";
+export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/usr/local/share/info:${INFOPATH:-}";
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-word)
@@ -41,6 +51,9 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 
 # Disable the cursor style feature
 ZVM_CURSOR_STYLE_ENABLED=false
+
+# Homebrew completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -181,8 +194,11 @@ alias v=vim
 
 # bindkey "^h" backward-word
 bindkey "^l" forward-word
-KEYTIMEOUT=1
 
+# VI-mode
+# bindkey -v
+# 10ms for key sequences
+KEYTIMEOUT=1
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

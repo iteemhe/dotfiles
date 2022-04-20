@@ -33,6 +33,11 @@
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
 [commit]
-    # gpgsign = true
+    gpgsign = true
 [core]
 	excludesfile = /Users/jiahaohe/.gitignore
+[user]
+    name = iteemhe
+    email = 31311090+iteemhe@users.noreply.github.com
+    signingKey = DBCFF98E5A4661F0
+

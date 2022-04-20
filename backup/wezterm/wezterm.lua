@@ -1,8 +1,10 @@
 local wezterm = require "wezterm"
 
 return {
-    initial_cols = 100,
-    initial_rows = 30,
+    --initial_cols = 100,
+    --initial_rows = 30,
+    initial_cols = 120,
+    initial_rows = 32,
     keys = {
         {
             key = "t",
@@ -14,16 +16,16 @@ return {
             }
         },
         {
-            key = "#",
-            mods = "CTRL|SHIFT|ALT",
+            key = "@",
+            mods = "CTRL|SHIFT",
             action = wezterm.action {SplitHorizontal = {domain = "CurrentPaneDomain"}}
         },
         {
-            key = '$',
-            mods = "CTRL|SHIFT|ALT",
+            key = '#',
+            mods = "CTRL|SHIFT",
             action = wezterm.action {SplitVertical = {domain = "CurrentPaneDomain"}}
-        }
-        -- {key = "%", mods = "SHIFT|CTRL", action = "ToggleFullScreen"},
+        },
+        -- {key = "2", mods = "CTRL", action = "ToggleFullScreen"},
         -- {key = "Z", mods = "CTRL", action = "TogglePaneZoomState"}
     },
     default_cwd = "/Users/jiahaohe",
@@ -37,11 +39,13 @@ return {
     ),
     font_size = 26.0,
     color_scheme = "MaterialDarker",
-    -- window_background_opacity = 0.90,
+    --window_background_opacity = 0.98,
     window_decorations = "NONE",
     window_close_confirmation = "NeverPrompt",
     enable_tab_bar = false,
     native_macos_fullscreen_mode = true,
+    force_reverse_video_cursor = true,
+    exit_behavior = "Close",
     unicode_version = 14,
     --  visual_bell = {
     --      fade_in_function = "EaseIn",
